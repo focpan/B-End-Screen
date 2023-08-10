@@ -34,11 +34,11 @@
                     </div>
                 </div>
                 <div class="left1" style="height:28%;">
-                    <red-pocket ref="redPocket"></red-pocket>
+                    <!-- <red-pocket ref="redPocket"></red-pocket> -->
                 </div>
                 <div style="height:22%;">
                     <div style="height:100%;">
-                        <channel-bar
+                        <!-- <channel-bar
                             id="left_5"
                             title="炒股借贷渠道分析"
                             :data="data3"
@@ -48,7 +48,9 @@
                             id="left_6"
                             :data="data4"
                             ref="distributionSolider2"
-                        ></distribution-solider>
+                        ></distribution-solider> -->
+
+                        <words-cloud></words-cloud>
                     </div>
                     <!--                        <div style="height:45%;"></div>-->
                 </div>
@@ -193,7 +195,7 @@
 const channelBar = ()=> import('./components/page3/channelBar');
 const distributionSolider = ()=> import('./components/page3/distributionSolider');
 const pie = ()=> import('./components/pie');
-const redPocket = ()=>import('./components/page3/redPocket');
+// const redPocket = ()=>import('./components/page3/redPocket');
 // const radar = ()=> import('./components/radar');
 // const doubleBar = ()=> import('./components/page3/doubleBar');
 const webcastsRisk = ()=> import('./components/page3/webcastsRisk');
@@ -202,17 +204,19 @@ const doubleRing = ()=> import('./components/page3/doubleRing');
 const hotWords =() => import('./components/page3/hotWords');
 const singleAreaChart = () => import('./components/page3/singleAreaChart');
 const tianheMap=() => import('./components/page3/tianheMap');
+const wordsCloud=() =>import('./components/page3/wordCloud.vue')
 
 export default {
     name: 'page3',
     props: ['selectRangeDate'],
     components: {
         // chinaMap,
+        wordsCloud,
         tianheMap,
         channelBar,
         distributionSolider,
         pie,
-        redPocket,
+        // redPocket,
         singleAreaChart,
         // radar,
         // doubleBar,
@@ -708,7 +712,7 @@ export default {
            this.$refs.channelBar2.setChart();
            this.$refs.distributionSolider2.setChart();
             //this.$refs.pies.setPies();
-           this.$refs.redPocket.setPocket();
+        //    this.$refs.redPocket.setPocket();
            this.$refs.webcastsRisk.setWebcasts();
         //    this.$refs.deviceSafeRisk.setDeviceSafe();
            this.$refs.ring1.drawRing();
