@@ -34,7 +34,9 @@
                     </div>
                 </div>
                 <div class="left1" style="height:28%;">
+                    
                     <!-- <red-pocket ref="redPocket"></red-pocket> -->
+                    <words-cloud></words-cloud>
                 </div>
                 <div style="height:22%;">
                     <div style="height:100%;">
@@ -50,7 +52,7 @@
                             ref="distributionSolider2"
                         ></distribution-solider> -->
 
-                        <words-cloud></words-cloud>
+                        <!-- <words-cloud></words-cloud> -->
                     </div>
                     <!--                        <div style="height:45%;"></div>-->
                 </div>

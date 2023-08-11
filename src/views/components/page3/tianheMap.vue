@@ -1,15 +1,18 @@
 <template>
     <baidu-map class="map" :center="{lng: 113.370126, lat: 23.130092}" :zoom="15"  :mapStyle="mapStyle">
+        <bm-marker :position="{lng: 113.370126, lat: 23.130092}" :color="black" :dragging="true" @click="infoWindowOpen">
+      <bm-info-window :show="show"  @close="infoWindowClose" @open="infoWindowOpen">{{ customText[1] }}</bm-info-window>
+    </bm-marker>
   </baidu-map>
 </template>
 
-
-<script  >
-
+<script>
 export default {
     
   data () {
     return {
+    show: false,
+    customText: ["我爱天河公园111","科韵路333","444"],
       mapStyle: {
         styleJson: [{
     "featureType": "land",
@@ -1311,6 +1314,14 @@ export default {
     }
 }]
       }
+    }
+  },
+  methods: {
+    infoWindowClose () {
+      this.show = false
+    },
+    infoWindowOpen () {
+      this.show = true
     }
   }
   
