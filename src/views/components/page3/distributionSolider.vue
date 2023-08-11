@@ -9,7 +9,12 @@ export default {
     data: Array,
   },
   data() {
-    return {};
+    return {
+      currentIdxs: Array(this.data.length).fill(0),
+      maxListLen: 6,
+      maxTextLen: 4,
+      timerId: null,
+    };
   },
   methods: {
     setSoliderData(type) {
@@ -36,7 +41,7 @@ export default {
               axisLabel: {
                 show: false,
               },
-              data: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+              data: [1, 2, 3, 4, 5],
             };
             break;
           case "y":
@@ -52,22 +57,32 @@ export default {
           case "s":
             obj = {
               type: "bar",
-              barWidth: 2,
-              data: this.data[i].data,
+              barWidth: 12,
+              data: (() => {
+                let arr = [];
+                let len = this.data[i].data.length;
+                for (
+                  let j = this.currentIdxs[i];
+                  j < this.maxListLen + this.currentIdxs[i];
+                  ++j
+                ) {
+                  arr.push(this.data[i].data[j % len]);
+                }
+                return arr;
+              })(),
               label: {
                 show: true,
                 position: "insideBottomLeft",
-                offset: [3, 0],
-                distance: 2,
+                offset: [12, 0],
+                distance: 4,
                 color: "#88B6C7",
-                fontSize: 9,
-                lineHeight: 9,
+                fontSize: 11,
+                lineHeight: 13,
                 rich: {
-                  a: {
-                    // 没有设置 `verticalAlign`，则 `verticalAlign` 为 bottom
-                  },
+                  a: {},
                 },
-                formatter: function (data) {
+                formatter: (data) => {
+                  data.data.name = data.data.name.substring(0, this.maxTextLen);
                   if (data.data.name.length == 2) {
                     return data.data.name.split("").join("\n\n");
                   } else {
@@ -140,7 +155,17 @@ export default {
     },
   },
   mounted() {
+    let idxs_ = this.currentIdxs;
     this.setChart();
+    this.timerId = setInterval(() => {
+      this.setChart();
+      for (let i = 0; i < idxs_.length; ++i) {
+        ++idxs_[i] % idxs_.length;
+      }
+    }, 3000);
+  },
+  destroyed() {
+    clearInterval(this.timerId);
   },
 };
 </script>
