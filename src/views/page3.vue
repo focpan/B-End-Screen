@@ -1,74 +1,4 @@
 <template>
-<<<<<<< HEAD
-    <Row class="page3">
-        <Col style="width:26%;">
-            <div class="left">
-                <span class='title'><span class="title-text">网赌网炒风险分析</span></span>
-                <span class="angle1"></span>
-                <span class="angle2"></span>
-                <span class="angle3"></span>
-                <span class="angle4"></span>
-                <div class="left1" style="height:50%;">
-                    <div style="height:65%;">
-                        <channel-bar
-                            id="left_1"
-                            title="网赌网炒渠道分析"
-                            :data="data1"
-                            ref="channelBar1"
-                        ></channel-bar>
-                        <distribution-solider
-                            id="left_2"
-                            :data="data2"
-                            ref="distributionSolider1"
-                        ></distribution-solider>
-                    </div>
-                    <div style="height: 35%;display: flex">
-                        <div style="height: 100%; width: 33.33%;">
-                            <pie ref="chart3" id="pie_1" :data="pieData1"></pie>
-                        </div>
-                        <div style="height: 100%; width: 33.33%;">
-                            <pie ref="chart3" id="pie_3" :data="pieData2"></pie>
-                        </div>
-                        <div style="height: 100%; width: 33.33%;">
-                            <pie ref="chart3" id="pie_2" :data="pieData3"></pie>
-                        </div>
-                    </div>
-                </div>
-                <div class="left1" style="height:28%;">
-                    
-                    <!-- <red-pocket ref="redPocket"></red-pocket> -->
-                    <words-cloud></words-cloud>
-                </div>
-                <div style="height:22%;">
-                    <div style="height:100%;">
-                        <!-- <channel-bar
-                            id="left_5"
-                            title="炒股借贷渠道分析"
-                            :data="data3"
-                            ref="channelBar2"
-                        ></channel-bar>
-                        <distribution-solider
-                            id="left_6"
-                            :data="data4"
-                            ref="distributionSolider2"
-                        ></distribution-solider> -->
-
-                        <!-- <words-cloud></words-cloud> -->
-                    </div>
-                    <!--                        <div style="height:45%;"></div>-->
-                </div>
-            </div>
-        </Col>
-        <Col style="width:48%;padding:0 1%;">
-            <div class="center-top">
-                <!-- <china-map ref="chinaMap"></china-map> -->
-                <tianhe-map ref="tianheMap"></tianhe-map>
-            </div>
-            <div class="center-bottom">
-        <span class="title"
-          ><span class="title-text">TOP5商家热度变化趋势</span></span>
-                <!-- <span class="angle1"></span>
-=======
   <Row class="page3">
     <Col style="width: 26%">
       <div class="left">
@@ -94,6 +24,11 @@
             ></store-rate-detail>
           </template>
         </Row>
+        <div class="left1" style="height:28%;">
+                    
+                    <!-- <red-pocket ref="redPocket"></red-pocket> -->
+                    <words-cloud></words-cloud>
+                </div>
       </div>
     </Col>
     <Col style="width: 48%; padding: 0 1%">
@@ -105,11 +40,7 @@
         <span class="title"
           ><span class="title-text">TOP5商家热度变化趋势</span></span
         >
-        <div class="left1" style="height:28%;">
-                    
-                    <!-- <red-pocket ref="redPocket"></red-pocket> -->
-                    <words-cloud></words-cloud>
-                </div>
+        
         <!-- <span class="angle1"></span>
 >>>>>>> dev
                 <span class="angle2"></span>
@@ -256,7 +187,7 @@ const webcastsRisk = () => import("./components/page3/webcastsRisk");
 const doubleRing = () => import("./components/page3/doubleRing");
 const hotWords = () => import("./components/page3/hotWords");
 const tianheMap = () => import("./components/page3/tianheMap");
-// const wordsCloud = () => import("./components/page3/wordCloud.vue");
+const wordsCloud = () => import("./components/page3/wordCloud.vue");
 const hotTrend = () => import("./components/page3/hotTrend");
 const storeRate = () => import("./components/page3/storeRate.vue");
 const storeRateDetail = () => import("./components/page3/storeRateDetail.vue");
@@ -266,7 +197,7 @@ export default {
   props: ["selectRangeDate"],
   components: {
     // chinaMap,
-    // wordsCloud,
+    wordsCloud,
     tianheMap,
     // channelBar,
     // distributionSolider,

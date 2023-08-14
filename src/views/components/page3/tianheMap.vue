@@ -1,8 +1,14 @@
 <template>
     <baidu-map class="map" :center="{lng: 113.370126, lat: 23.130092}" :zoom="15"  :mapStyle="mapStyle">
-        <bm-marker :position="{lng: 113.370126, lat: 23.130092}" :color="black" :dragging="true" @click="infoWindowOpen">
-      <bm-info-window :show="show"  @close="infoWindowClose" @open="infoWindowOpen">{{ customText[1] }}</bm-info-window>
-    </bm-marker>
+        <!-- <bm-marker :position="{lng: 113.370126, lat: 23.130092}" :color="black" :dragging="true" @click="infoWindowOpen"> -->
+            <bm-info-window :position="{lng: this.position[0], lat: this.position[1]}" title="酒店信息" :show="infoWindow.show" @close="infoWindowClose" @open="infoWindowOpen">
+                <p v-text="infoWindow.contents"></p>
+            </bm-info-window>    
+        <bm-point-collection :points="starpoints" shape="BMAP_POINT_SHAPE_CIRCLE" color="red" size="BMAP_POINT_SIZE_SMALL" @click="infoWindowOpen">
+        </bm-point-collection>
+        <bm-point-collection :points="circlepoints" shape="BMAP_POINT_SHAPE_CIRCLE" color="#c0c0c0" size="BMAP_POINT_SIZE_SMALL" @click="infoWindowOpen">
+        </bm-point-collection>
+    <!-- </bm-marker> -->
   </baidu-map>
 </template>
 
@@ -12,7 +18,7 @@ export default {
   data () {
     return {
     show: false,
-    customText: ["我爱天河公园111","科韵路333","444"],
+    customText: ["如家","汉庭","希尔顿花园酒店"],
       mapStyle: {
         styleJson: [{
     "featureType": "land",
@@ -1313,16 +1319,45 @@ export default {
         "color": "#ffffff00"
     }
 }]
+      },
+      starpoints: [],
+      circlepoints:[],
+      position:[113.370126,23.130092],
+      infoWindow: {
+        show: false,
+        contents: '希尔顿花园酒店xxx （自定义酒店信息）.'
       }
     }
   },
+  
   methods: {
     infoWindowClose () {
-      this.show = false
+      this.infoWindow.show = false;
+      
     },
-    infoWindowOpen () {
-      this.show = true
+    infoWindowOpen (e) {
+        this.position=[e.point.lng,e.point.lat];
+      this.infoWindow.show = true
+    },
+    initpoints(){
+        // const points = [];
+      for (var i = 0; i < 5; i++) {
+        const position = {lng: Math.random() * 0.01 + 113.37012, lat: Math.random() * 0.01 + 23.1300}
+        this.starpoints.push(position)
+      }
+    //   this.starpoints = points
+
+    //   const points2 = []
+      for (var i = 0; i < 5; i++) {
+        const position = {lng: Math.random() * 0.01 + 113.37012, lat: Math.random() * 0.01 + 23.1300}
+        this.circlepoints.push(position)
+      }
+    //   this.circlepoints=points2
+    
     }
+  },
+  created() {
+    this.initpoints();
   }
   
 }
