@@ -1,6 +1,22 @@
 <template>
     <baidu-map class="map" :center="{lng: 113.370126, lat: 23.130092}" :zoom="15"  :mapStyle="mapStyle">
         <!-- <bm-marker :position="{lng: 113.370126, lat: 23.130092}" :color="black" :dragging="true" @click="infoWindowOpen"> -->
+            <bm-control anchor="BMAP_ANCHOR_TOP_RIGHT">
+                <div class="button-container" style="margin-top: 20px; margin-left: 20px;" >
+                    <div class="info-box" >
+                        <div class="color-box" :style="{ backgroundColor: '#FF0000' }"></div>
+                        <div class="text-box" >
+                        <p style="color: #6EDDF1;">级别1&nbsp;</p>
+                        </div>
+                    </div>
+                    <div class="info-box" >
+                        <div class="color-box" :style="{ backgroundColor: '#c0c0c0' }"></div>
+                        <div class="text-box">
+                        <p style="color: #6EDDF1;">级别2&nbsp;</p>
+                        </div>
+                    </div>
+                </div>
+            </bm-control>
             <bm-info-window :position="{lng: this.position[0], lat: this.position[1]}" title="酒店信息" :show="infoWindow.show" @close="infoWindowClose" @open="infoWindowOpen">
                 <p v-text="infoWindow.contents"></p>
             </bm-info-window>    
@@ -14,6 +30,7 @@
 
 <script>
 export default {
+    
     
   data () {
     return {
@@ -1373,5 +1390,24 @@ export default {
     .map {
         width: 100%;
         height: 430px;
-    }  
+    }
+    .button-container {
+        display: flex;
+        flex-direction: column; /* 设置为垂直排列 */
+        align-items: flex-start; /* 水平左对齐 */
+    } 
+    .info-box {
+    display: flex;
+    align-items: center;
+    }
+
+    .color-box {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    }
+
+    .text-box {
+    flex: 1;
+    }
     </style>
