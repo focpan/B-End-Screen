@@ -5,7 +5,7 @@
         <span class="title" style="z-index: 1999"
           ><span
             class="title-4"
-            @click="switchState = !switchState"
+            @click="showRateDetail = !showRateDetail"
             style="cursor: pointer"
             >商户分级监控</span
           ></span
@@ -16,7 +16,7 @@
         <span class="angle4"></span>
         <Row style="width: 100%; height: 50%">
           <template style="height: 80%">
-            <storeRate v-if="!switchState" ref="chart6"></storeRate>
+            <storeRate v-if="!showRateDetail" ref="chart6"></storeRate>
             <store-rate-detail
               v-else
               :data1="data1"
@@ -38,7 +38,12 @@
       </div>
       <div class="center-bottom">
         <span class="title"
-          ><span class="title-text">TOP5商家热度变化趋势</span></span
+          ><span
+            class="title-text"
+            @click="showPublicEvent = !showPublicEvent"
+            style="cursor: pointer"
+            >TOP5商家热度变化趋势</span
+          ></span
         >
         
         <!-- <span class="angle1"></span>
@@ -106,7 +111,11 @@
                         ></double-bar>
                     </Col>
                 </Row> -->
-        <hot-trend :selectRangeDate="selectRangeDate"></hot-trend>
+        <hot-trend
+          :selectRangeDate="selectRangeDate"
+          v-if="!showPublicEvent"
+        ></hot-trend>
+        <public-event-list v-else></public-event-list>
       </div>
     </Col>
     <Col style="width: 26%">
@@ -191,6 +200,7 @@ const wordsCloud = () => import("./components/page3/wordCloud.vue");
 const hotTrend = () => import("./components/page3/hotTrend");
 const storeRate = () => import("./components/page3/storeRate.vue");
 const storeRateDetail = () => import("./components/page3/storeRateDetail.vue");
+const publicEventList = () => import("./components/page3/publicEventList.vue");
 
 export default {
   name: "page3",
@@ -213,10 +223,12 @@ export default {
     hotTrend,
     storeRate,
     storeRateDetail,
+    publicEventList,
   },
   data() {
     return {
-      switchState: false,
+      showRateDetail: false,
+      showPublicEvent: false,
       data1: [
         {
           subtitle: "合作120家（120/180）",
