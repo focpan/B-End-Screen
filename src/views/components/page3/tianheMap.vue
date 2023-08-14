@@ -1341,14 +1341,14 @@ export default {
     },
     initpoints(){
         // const points = [];
-      for (var i = 0; i < 5; i++) {
+      for (let i = 0; i < 5; i++) {
         const position = {lng: Math.random() * 0.01 + 113.37012, lat: Math.random() * 0.01 + 23.1300}
         this.starpoints.push(position)
       }
     //   this.starpoints = points
 
     //   const points2 = []
-      for (var i = 0; i < 5; i++) {
+      for (let i = 0; i < 5; i++) {
         const position = {lng: Math.random() * 0.01 + 113.37012, lat: Math.random() * 0.01 + 23.1300}
         this.circlepoints.push(position)
       }
