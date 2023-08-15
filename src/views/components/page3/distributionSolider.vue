@@ -11,7 +11,7 @@ export default {
   data() {
     return {
       currentIdxs: Array(this.data.length).fill(0),
-      maxListLen: 6,
+      maxListLen: 5,
       maxTextLen: 4,
       timerId: null,
     };
@@ -63,10 +63,10 @@ export default {
                 let len = this.data[i].data.length;
                 for (
                   let j = this.currentIdxs[i];
-                  j < this.maxListLen + this.currentIdxs[i];
+                  j < len && j < this.currentIdxs[i] + this.maxListLen;
                   ++j
                 ) {
-                  arr.push(this.data[i].data[j % len]);
+                  arr.push(this.data[i].data[j]);
                 }
                 return arr;
               })(),
@@ -105,7 +105,7 @@ export default {
                     },
                     {
                       offset: 1,
-                      color: "rgba(" + this.data[i].color + ",0)", // 100% 处的颜色
+                      color: "rgba(" + this.data[i].color + ",1)", // 100% 处的颜色
                     },
                   ],
                   globalCoord: false, // 缺省为 false
@@ -152,16 +152,18 @@ export default {
       myChart.clear();
       myChart.resize();
       myChart.setOption(option);
+      let idxs_ = this.currentIdxs;
+      for (let i = 0; i < idxs_.length; ++i) {
+        let data = this.data[i].data;
+        let nextIdx = idxs_[i] + this.maxListLen;
+        idxs_[i] = nextIdx > data.length ? 0 : nextIdx % data.length;
+      }
     },
   },
   mounted() {
-    let idxs_ = this.currentIdxs;
     this.setChart();
     this.timerId = setInterval(() => {
       this.setChart();
-      for (let i = 0; i < idxs_.length; ++i) {
-        ++idxs_[i] % idxs_.length;
-      }
     }, 3000);
   },
   destroyed() {
