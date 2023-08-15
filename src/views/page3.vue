@@ -24,6 +24,10 @@
             ></store-rate-detail>
           </template>
         </Row>
+        <div class="left1" style="height: 28%">
+          <!-- <red-pocket ref="redPocket"></red-pocket> -->
+          <words-cloud></words-cloud>
+        </div>
       </div>
     </Col>
     <Col style="width: 48%; padding: 0 1%">
@@ -52,8 +56,8 @@
             @click="showPublicEvent = !showPublicEvent"
             style="cursor: pointer"
             >TOP5商家热度变化趋势</span
-          ></span
-        > -->
+          ></span> 
+        -->
         <!-- <span class="angle1"></span>
                 <span class="angle2"></span>
                 <span class="angle3"></span>
@@ -203,7 +207,7 @@ const webcastsRisk = () => import("./components/page3/webcastsRisk");
 const doubleRing = () => import("./components/page3/doubleRing");
 const hotWords = () => import("./components/page3/hotWords");
 const tianheMap = () => import("./components/page3/tianheMap");
-// const wordsCloud = () => import("./components/page3/wordCloud.vue");
+const wordsCloud = () => import("./components/page3/wordCloud.vue");
 const hotTrend = () => import("./components/page3/hotTrend");
 const storeRate = () => import("./components/page3/storeRate.vue");
 const storeRateDetail = () => import("./components/page3/storeRateDetail.vue");
@@ -214,7 +218,7 @@ export default {
   props: ["selectRangeDate"],
   components: {
     // chinaMap,
-    // wordsCloud,
+    wordsCloud,
     tianheMap,
     // channelBar,
     // distributionSolider,
