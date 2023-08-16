@@ -13,43 +13,53 @@ export default {
             wordCloudData : [
                 {
                     id: "1",
-                    content: "老铁稳!"
+                    content: "酒店",
+                    weight:15
                 },
                 {
                     id: "2",
-                    content: "AWSL"
+                    content: "房间",
+                    weight:12
                 },
                 {
                     id: "3",
-                    content: "阿伟死了"
+                    content: "卫生",
+                    weight:8
                 },
                 {
                     id: "4",
-                    content: "完结散花"
+                    content: "早餐",
+                    weight:4
                 },
                 {
                     id: "5",
-                    content: "穷人解禁"
+                    content: "出行",
+                    weight:13
                 },
                 {
                     id: "6",
-                    content: "奥利给"
+                    content: "天河",
+                    weight:8
                 },
                 {
                     id: "7",
-                    content: "前方十条弹幕,请做好战斗准备"
+                    content: "交通",
+                    weight:9
                 },
                 {
                     id: "8",
-                    content: "空降失败"
+                    content: "环境不错",
+                    weight:5
                 },
                 {
                     id: "9",
-                    content: "指挥部:空降地点1'20"
+                    content: "地铁",
+                    weight:9
                 },
                 {
                     id: "10",
-                    content: "上海机场"
+                    content: "服务",
+                    weight:7
                 }
             ],
         }
@@ -65,7 +75,7 @@ export default {
                 let obj = {
                     name: word.content,
                     itemData: word,
-                    weight: Math.floor(Math.random()*3+1)//控制加粗,随机数取1~3
+                    weight: Math.floor(word.weight)//控制加粗,随机数取1~3
                 };
                 arr.push(obj);
                 return arr;
@@ -97,9 +107,9 @@ export default {
                 series: [{
                     type: "wordcloud",// 类型
                     data: data,
-                    rotation: 0,//字体不旋转
-                    maxFontSize: 30,//最大字体
-                    minFontSize: 16,//最小字体
+                    // rotation: 90,//字体不旋转
+                    maxFontSize: 15,//最大字体
+                    minFontSize: 5,//最小字体
                     style: {
                         fontFamily: "微软雅黑",
                         fontWeight: '500'
