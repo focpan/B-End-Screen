@@ -125,8 +125,14 @@
         <hot-trend
           :selectRangeDate="selectRangeDate"
           v-if="!showPublicEvent"
+          limit="2"
         ></hot-trend>
-        <public-event-list v-else></public-event-list>
+        <public-event-list
+          v-else
+          :hotItems="hotItems"
+          :items="items"
+          :limit="items.length / 2"
+        ></public-event-list>
       </div>
     </Col>
     <Col style="width: 26%">
@@ -240,6 +246,73 @@ export default {
     return {
       showRateDetail: false,
       showPublicEvent: false,
+      hotItems: [
+        {
+          text: "一直很好奇，这种黄焖鸡又嫩又滑，和平常的鸡肉很不一样平常的鸡肉总是柴柴的，这种肉到底是真实的还是合成的，好好奇",
+          origin: "小红书",
+          date: new Date(),
+        },
+        {
+          text: "我是妈生黄黑皮，真的很想变白啊，如果穿长裤防晒效果比较好我以后就算热也穿了！！",
+          origin: "抖音",
+          date: new Date(),
+        },
+        {
+          text: "广州真的只有3.3万人喜欢看免费活动吗？？？？免费演出！免费打卡地！免费音乐会！好多 见面会！真的没有人喜欢了吗？",
+          origin: "微博",
+          date: new Date(),
+        },
+      ],
+      items: [
+        {
+          text: "看《孤注一掷》前pxx员工狠狠代入了\
+家人们，谁懂啊，看个电影给我看破防了，简直看到了自己在夕夕工作的三年（虽然但是我还是很喜欢这家公司，甚至可以说在所有工作经历中最快乐的一段经历，破防的是累的部分）相似点包括但不限于：",
+          origin: "小红书",
+          date: new Date(),
+        },
+        {
+          text: "据说这是福建省省饭‼\
+闽南人从小吃到大的咸饭\
+万物皆可咸饭🍚\
+最经典的是芋头饭、卷心菜饭、土豆饭",
+          origin: "小红书",
+          date: new Date(),
+        },
+        {
+          text: "广州十三行博物馆-去感受那泼天的富贵\
+          一切照片都不及亲眼所见的精致与灿烂\
+          #值得一去的博物馆\
+          #广州十三行博物馆\
+          #博物馆盖章\
+          #盖章",
+          origin: "小红书",
+          date: new Date(),
+        },
+        {
+          text: "看《孤注一掷》前pxx员工狠狠代入了\
+家人们，谁懂啊，看个电影给我看破防了，简直看到了自己在夕夕工作的三年（虽然但是我还是很喜欢这家公司，甚至可以说在所有工作经历中最快乐的一段经历，破防的是累的部分）相似点包括但不限于：",
+          origin: "小红书",
+          date: new Date(),
+        },
+        {
+          text: "据说这是福建省省饭‼\
+闽南人从小吃到大的咸饭\
+万物皆可咸饭🍚\
+最经典的是芋头饭、卷心菜饭、土豆饭",
+          origin: "小红书",
+          date: new Date(),
+        },
+        {
+          text: "广州十三行博物馆-去感受那泼天的富贵\
+          一切照片都不及亲眼所见的精致与灿烂\
+          #值得一去的博物馆\
+          #广州十三行博物馆\
+          #博物馆盖章\
+          #盖章",
+          origin: "小红书",
+          date: new Date(),
+        },
+      ],
       data1: [
         {
           subtitle: "合作120家（120/180）",

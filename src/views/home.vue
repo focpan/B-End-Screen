@@ -9,8 +9,8 @@
         >
           <MenuItem name="page1"> page1 </MenuItem>
           <MenuItem name="page2"> page2 </MenuItem>
-          <MenuItem name="page3"> page3 </MenuItem>
-          <MenuItem name="page4"> page4 </MenuItem>
+          <MenuItem name="page3"> 商圈数据分析 </MenuItem>
+          <MenuItem name="page4"> 商户数据分析 </MenuItem>
         </Menu>
       </div>
       <div class="header-title">大数据可视化平台</div>

@@ -109,9 +109,12 @@
 export default {
   name: "PublicEventList",
   components: {},
-  // props: {
-  //   data: Array,
-  // },
+  props: {
+    data: Array,
+    hotItems: Array,
+    items: Array,
+    limit: Number,
+  },
   data() {
     return {
       colorConfig: [
@@ -121,74 +124,6 @@ export default {
         ["#FFA000", "#bfbfbf", "#b06157"],
         ["#FF8F00", "#bfbfbf", "#b06157"],
         ["#FFCA28", "#cddbe3", "#db887d"],
-      ],
-      limit: 3,
-      hotItems: [
-        {
-          text: "一直很好奇，这种黄焖鸡又嫩又滑，和平常的鸡肉很不一样平常的鸡肉总是柴柴的，这种肉到底是真实的还是合成的，好好奇",
-          origin: "小红书",
-          date: new Date(),
-        },
-        {
-          text: "我是妈生黄黑皮，真的很想变白啊，如果穿长裤防晒效果比较好我以后就算热也穿了！！",
-          origin: "抖音",
-          date: new Date(),
-        },
-        {
-          text: "广州真的只有3.3万人喜欢看免费活动吗？？？？免费演出！免费打卡地！免费音乐会！好多 见面会！真的没有人喜欢了吗？",
-          origin: "微博",
-          date: new Date(),
-        },
-      ],
-      items: [
-        {
-          text: "看《孤注一掷》前pxx员工狠狠代入了\
-家人们，谁懂啊，看个电影给我看破防了，简直看到了自己在夕夕工作的三年（虽然但是我还是很喜欢这家公司，甚至可以说在所有工作经历中最快乐的一段经历，破防的是累的部分）相似点包括但不限于：",
-          origin: "小红书",
-          date: new Date(),
-        },
-        {
-          text: "据说这是福建省省饭‼\
-闽南人从小吃到大的咸饭\
-万物皆可咸饭🍚\
-最经典的是芋头饭、卷心菜饭、土豆饭",
-          origin: "小红书",
-          date: new Date(),
-        },
-        {
-          text: "广州十三行博物馆-去感受那泼天的富贵\
-          一切照片都不及亲眼所见的精致与灿烂\
-          #值得一去的博物馆\
-          #广州十三行博物馆\
-          #博物馆盖章\
-          #盖章",
-          origin: "小红书",
-          date: new Date(),
-        },
-        {
-          text: "看《孤注一掷》前pxx员工狠狠代入了\
-家人们，谁懂啊，看个电影给我看破防了，简直看到了自己在夕夕工作的三年（虽然但是我还是很喜欢这家公司，甚至可以说在所有工作经历中最快乐的一段经历，破防的是累的部分）相似点包括但不限于：",
-          origin: "小红书",
-          date: new Date(),
-        },
-        {
-          text: "据说这是福建省省饭‼\
-闽南人从小吃到大的咸饭\
-万物皆可咸饭🍚\
-最经典的是芋头饭、卷心菜饭、土豆饭",
-          origin: "小红书",
-          date: new Date(),
-        },
-        {
-          text: "广州十三行博物馆-去感受那泼天的富贵\
-          一切照片都不及亲眼所见的精致与灿烂\
-          #值得一去的博物馆\
-          #广州十三行博物馆\
-          #博物馆盖章\
-          #盖章",
-          origin: "小红书",
-          date: new Date(),
-        },
       ],
     };
   },
@@ -257,7 +192,9 @@ export default {
   created() {},
   mounted() {
     // this.data = this.data.concat(this.data);
-    let event_dom = document.getElementsByClassName("public-event")[0];
+    let event_dom = document
+      .getElementById("scroll-area")
+      .getElementsByClassName("public-event")[0];
     let offset = event_dom.offsetHeight * this.limit;
     document
       .getElementById("scroll-area")
@@ -296,18 +233,9 @@ export default {
 .public-event {
   display: flex;
   padding: 0.5rem 5px 0.5rem 5px;
-  color: rgb(110, 221, 242);
-  height: 2rem;
   background-color: #0c0c2c;
   align-items: center;
-  div {
-    display: flex;
-    align-items: center;
-    height: 100%;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
+  transition: color 0.3s;
   div:nth-of-type(1) {
     display: block !important;
     width: calc(60% - 20px);
@@ -320,6 +248,14 @@ export default {
     justify-content: center;
     width: 25%;
   }
+  div {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 }
 .container {
   height: calc(100% - 2rem);
@@ -330,16 +266,19 @@ export default {
     cursor: default;
     #rank-top {
       .public-event {
-        color: rgba(161, 213, 255, 0.842);
+        color: rgba(138, 192, 236, 0.842);
         height: 2.2rem;
+        div:hover {
+          color: rgba(184, 217, 245, 0.842);
+        }
       }
-      .public-event:nth-child(1) {
+      li:nth-of-type(1) {
         font-size: 0.9rem;
       }
-      .public-event:nth-child(2) {
+      li:nth-of-type(2) {
         font-size: 0.8rem;
       }
-      .public-event:nth-child(3) {
+      li:nth-of-type(3) {
         font-size: 0.7rem;
       }
     }
@@ -349,6 +288,13 @@ export default {
       #scroll-area {
         -webkit-animation: 8s scrollTop linear infinite normal;
         animation: 8s scrollTop linear infinite normal;
+        .public-event {
+          color: rgb(110, 221, 242);
+          height: 2rem;
+          div:hover {
+            color: rgb(161, 237, 252);
+          }
+        }
       }
     }
   }

@@ -24,118 +24,55 @@
             ></store-rate-detail>
           </template>
         </Row>
-        <div class="left1" style="height:28%;">
-                    
-                    <!-- <red-pocket ref="redPocket"></red-pocket> -->
-                    <words-cloud></words-cloud>
-                </div>
+        <div class="left1" style="height: 28%">
+          <!-- <red-pocket ref="redPocket"></red-pocket> -->
+          <words-cloud></words-cloud>
+        </div>
       </div>
     </Col>
     <Col style="width: 48%; padding: 0 1%">
-      <div class="center-top" style="height:55%;">
-        <!-- <china-map ref="chinaMap"></china-map> -->
-        <!-- <tianhe-map ref="tianheMap"></tianhe-map> -->
-        <public-event-list ></public-event-list>
-      </div>
-      <div class="center-bottom" >
-        <span class="title"
-          ><span
-            class="title-text"
-            
-            style="cursor: pointer"
-            >TOP5商家热度变化趋势</span
-          ></span
+      <div class="center-top">
+        <span class="title" style="z-index: 1999"
+          ><span class="title-4">用户体验</span></span
         >
-        
-        <!-- <span class="angle1"></span>
->>>>>>> dev
-                <span class="angle2"></span>
-                <span class="angle3"></span>
-                <span class="angle4"></span>
-                <Row class="bottom-radars">
-                    <Col span="6">
-                        <radar
-                            id='bottom_1_1'
-                            :data=data5
-                            ref="chart1"
-                        ></radar>
-                    </Col>
-                    <Col span="6">
-                        <radar
-                            id='bottom_1_2'
-                            :data=data6
-                            ref="chart2"
-                        ></radar>
-                    </Col>
-                    <Col span="6">
-                        <radar
-                            id='bottom_1_3'
-                            :data=data7
-                            ref="chart3"
-                        ></radar>
-                    </Col>
-                    <Col span="6">
-                        <radar
-                            id='bottom_1_4'
-                            :data=data8
-                            ref="chart4"
-                        ></radar>
-                    </Col>
-                </Row>
-                <Row class="bottom-bars">
-                    <Col span="6">
-                        <double-bar
-                            id="bottom_2_1"
-                            :data="data9"
-                            ref="chart5"
-                        ></double-bar>
-                    </Col>
-                    <Col span="6">
-                        <double-bar
-                            id="bottom_2_2"
-                            :data="data10"
-                            ref="chart6"
-                        ></double-bar>
-                    </Col>
-                    <Col span="6">
-                        <double-bar
-                            id="bottom_2_3"
-                            :data="data11"
-                            ref="chart7"
-                        ></double-bar>
-                    </Col>
-                    <Col span="6">
-                        <double-bar
-                            id="bottom_2_4"
-                            :data="data12"
-                            ref="chart8"
-                        ></double-bar>
-                    </Col>
-                </Row> -->
-        <hot-trend
-          :selectRangeDate="selectRangeDate"
-          
-        ></hot-trend>
-        
+        <span class="angle1"></span>
+        <span class="angle2"></span>
+        <span class="angle3"></span>
+        <span class="angle4"></span>
+        <public-event-list
+          :hotItems="hotItems"
+          :items="items"
+          :limit="items.length / 2"
+        ></public-event-list>
+      </div>
+      <div class="center-bottom">
+        <span class="title"><span class="title-text">热度变化趋势</span></span>
+        <span class="angle1"></span>
+        <span class="angle2"></span>
+        <span class="angle3"></span>
+        <span class="angle4"></span>
+        <hot-trend :selectRangeDate="selectRangeDate" limit="1"></hot-trend>
       </div>
     </Col>
     <Col style="width: 26%">
       <div class="right-1">
         <div class="right1-1">
-          <span class="title"><span class="title-text">用户分布监控</span></span
+          <span class="title"
+            ><span class="title-text">用户分布监控</span></span
           >
           <!-- <span class="angle1"></span>
           <span class="angle2"></span>
           <span class="angle3"></span>
           <span class="angle4"></span>
           <webcasts-risk ref="webcastsRisk"></webcasts-risk> -->
-            <div class="ring-container">
-              <div class="list">
-            <ring ref="chart9" :data="ringData1"></ring>
-          </div>
-            
-            <div class="list" ><ring ref="chart10" :data="ringData2"></ring></div>
-            
+          <div class="ring-container">
+            <div class="list">
+              <ring ref="chart9" :data="ringData1"></ring>
+            </div>
+
+            <div class="list">
+              <ring ref="chart10" :data="ringData2"></ring>
+            </div>
           </div>
         </div>
       </div>
@@ -209,7 +146,7 @@ const hotTrend = () => import("./components/page3/hotTrend");
 const storeRate = () => import("./components/page3/storeRate.vue");
 const storeRateDetail = () => import("./components/page3/storeRateDetail.vue");
 const publicEventList = () => import("./components/page3/publicEventList.vue");
-const ring = () => import('./components/page4/ring');
+const ring = () => import("./components/page4/ring");
 
 export default {
   name: "page3",
@@ -239,6 +176,85 @@ export default {
     return {
       showRateDetail: false,
       showPublicEvent: false,
+      hotItems: [
+        {
+          text: "环境很差，打扫非常不干净，除了第一天前台的小姐服务态度不错外，真的很恶心，墙壁发霉，所谓酒店有霉味，床头柜和地板都是脏的，床底烟头、碎瓷片什么东西都有，里面的花洒是烂的，窗是坏的，晚上有蚊子，真的是图片和实景的巨大区别",
+          origin: "携程",
+          date: new Date(),
+        },
+        {
+          text: "住宿条件极差，无窗就算了，主要里面臭味太大了，我这么讲究的人当天都想不住走人的，因为附近都满了，也就只能这样住一晚了。潮湿，霉菌，异味浓重。我这出差住了6年的酒店遭遇到最差的一次了，赶上展会疯狂涨价，但这家涨到140多的价格就算了，这种环境是怎么定的价。住了一晚感觉都得得病。。第二天早上出来全身痒，起红色大疹子。奉劝各位想省钱的注意点，参考一下。或者定价格高一点的可能会好点有可能，我只知道我住的房间是极差的。入住当天不敢冲澡、不敢脱衣服睡、不敢上厕所、不敢刷牙(我是用矿泉水的水刷的) 卫生：特差 霉菌 潮湿 异味 环境：恶劣 设施：简陋 服务：一般",
+          origin: "携程",
+          date: new Date(),
+        },
+        {
+          text: "酒店环境很好 前台24小时都有人 设施齐全 床品也很舒服 每次出差基本都住在这里 非常好",
+          origin: "携程",
+          date: new Date(),
+        },
+      ],
+      items: [
+        {
+          text: "酒店环境不错 下次还会再来住 每次家里人来医院都过来住 卫生服务都很好 服务人员很热情 有家一样的感觉",
+          origin: "携程",
+          date: new Date(),
+        },
+        {
+          text: "设施齐全 服务特别好 感觉这里非常不错 环境很好 住了很久了 离六院很近 比较方便",
+          origin: "携程",
+          date: new Date(),
+        },
+        {
+          text: "家里人身体不好 在医院住院 楼上有小厨房跟洗衣机 外面有大阳台晒衣服 因为每天都在医院里面照顾 衣服有时候晒在外面下雨了 酒店都会帮忙把衣服收进去 老板娘真的很热情 很好说话 非常推荐来入住",
+          origin: "携程",
+          date: new Date(),
+        },
+        {
+          text: "4.1号去看张杰演唱会订的 因为场馆附近的抢票那天都预订完了 这个地方离地铁也蛮近 走路10分钟左右可以到 一开始预订没注意看 入住那天才发现没窗 有一种难受窒息感 找前台换了有窗的 加收了30 不太好一点是 洗手台那个水龙头🚰口很锋利 直接给我手划了一个口子 …",
+          origin: "携程",
+          date: new Date(),
+        },
+        {
+          text: "携程上兑换了免费升级，延迟退房，前台都说不不不。然后枕头一看就是很久没换枕套。不隔音，其他房间有人呕吐，就好像在你床头吐。但是，楼层服务员大姐很热心。6院看病可以住一夜……真的，就一夜……",
+          origin: "携程",
+          date: new Date(),
+        },
+        {
+          text: "酒店离六院很近 周边吃的很多 服务很好 酒店卫生很好",
+          origin: "携程",
+          date: new Date(),
+        },
+        {
+          text: "酒店环境不错 下次还会再来住 每次家里人来医院都过来住 卫生服务都很好 服务人员很热情 有家一样的感觉",
+          origin: "携程",
+          date: new Date(),
+        },
+        {
+          text: "设施齐全 服务特别好 感觉这里非常不错 环境很好 住了很久了 离六院很近 比较方便",
+          origin: "携程",
+          date: new Date(),
+        },
+        {
+          text: "家里人身体不好 在医院住院 楼上有小厨房跟洗衣机 外面有大阳台晒衣服 因为每天都在医院里面照顾 衣服有时候晒在外面下雨了 酒店都会帮忙把衣服收进去 老板娘真的很热情 很好说话 非常推荐来入住",
+          origin: "携程",
+          date: new Date(),
+        },
+        {
+          text: "4.1号去看张杰演唱会订的 因为场馆附近的抢票那天都预订完了 这个地方离地铁也蛮近 走路10分钟左右可以到 一开始预订没注意看 入住那天才发现没窗 有一种难受窒息感 找前台换了有窗的 加收了30 不太好一点是 洗手台那个水龙头🚰口很锋利 直接给我手划了一个口子 …",
+          origin: "携程",
+          date: new Date(),
+        },
+        {
+          text: "携程上兑换了免费升级，延迟退房，前台都说不不不。然后枕头一看就是很久没换枕套。不隔音，其他房间有人呕吐，就好像在你床头吐。但是，楼层服务员大姐很热心。6院看病可以住一夜……真的，就一夜……",
+          origin: "携程",
+          date: new Date(),
+        },
+        {
+          text: "酒店离六院很近 周边吃的很多 服务很好 酒店卫生很好",
+          origin: "携程",
+          date: new Date(),
+        },
+      ],
       data1: [
         {
           subtitle: "合作120家（120/180）",
@@ -714,85 +730,85 @@ export default {
         ],
       },
       ringData1: {
-                title: '男性用户分布',
-                data: [
-                    {
-                        value: 335,
-                        name: '18-24',
-                        itemStyle: {
-                            color: '#252448'
-                        }
-                    },
-                    {
-                        value: 310,
-                        name: '25-34',
-                        itemStyle: {
-                            color: '#2ca8fe'
-                        }
-                    },
-                    {
-                        value: 234,
-                        name: '35-44',
-                        itemStyle: {
-                            color: '#feed2c'
-                        }
-                    },
-                    {
-                        value: 135,
-                        name: '其他',
-                        itemStyle: {
-                            color: '#2871ea'
-                        }
-                    },
-                    {
-                        value: 200,
-                        name: '45-54',
-                        itemStyle: {
-                            color: '#fe672c'
-                        }
-                    }
-                ]
+        title: "男性用户分布",
+        data: [
+          {
+            value: 335,
+            name: "18-24",
+            itemStyle: {
+              color: "#252448",
             },
-            // 环形数据2
+          },
+          {
+            value: 310,
+            name: "25-34",
+            itemStyle: {
+              color: "#2ca8fe",
+            },
+          },
+          {
+            value: 234,
+            name: "35-44",
+            itemStyle: {
+              color: "#feed2c",
+            },
+          },
+          {
+            value: 135,
+            name: "其他",
+            itemStyle: {
+              color: "#2871ea",
+            },
+          },
+          {
+            value: 200,
+            name: "45-54",
+            itemStyle: {
+              color: "#fe672c",
+            },
+          },
+        ],
+      },
+      // 环形数据2
       ringData2: {
-          title: '女性用户分布',
-          data: [
-              {
-                  value: 335,
-                  name: '18-24',
-                  itemStyle: {
-                      color: '#69f262'
-                  }
-              },
-              {
-                  value: 310,
-                  name: '25-34',
-                  itemStyle: {
-                      color: '#c0232a'
-                  }
-              },
-              {
-                  value: 234,
-                  name: '35-44',
-                  itemStyle: {
-                      color: '#2cfcfe'
-                  }
-              },
-              {
-                  value: 135,
-                  name: '其他',
-                  itemStyle: {
-                      color: '#252448'
-                  }
-              },
-              {
-                  value: 200,
-                  name: '45-54',
-                  itemStyle: {
-                      color: '#a262f2'
-                  }
-              }
-          ]
+        title: "女性用户分布",
+        data: [
+          {
+            value: 335,
+            name: "18-24",
+            itemStyle: {
+              color: "#69f262",
+            },
+          },
+          {
+            value: 310,
+            name: "25-34",
+            itemStyle: {
+              color: "#c0232a",
+            },
+          },
+          {
+            value: 234,
+            name: "35-44",
+            itemStyle: {
+              color: "#2cfcfe",
+            },
+          },
+          {
+            value: 135,
+            name: "其他",
+            itemStyle: {
+              color: "#252448",
+            },
+          },
+          {
+            value: 200,
+            name: "45-54",
+            itemStyle: {
+              color: "#a262f2",
+            },
+          },
+        ],
       },
       resizeFn: null,
     };
@@ -857,6 +873,7 @@ export default {
   }
   .left,
   .right1-1,
+  .center-top,
   .center-bottom {
     height: 100%;
     border: 1px solid #0d2451;
@@ -903,7 +920,6 @@ export default {
       border-bottom: 1px solid #0d2451;
       background: #151456;
     }
-
     .title {
       position: absolute;
       display: inline-block;
@@ -947,7 +963,6 @@ export default {
     .right1-1 {
       height: 92%;
     }
-    
   }
 
   .right-2 {
@@ -955,15 +970,15 @@ export default {
   }
   .ring-container {
     width: 100%;
-      height: 100%;
-      display: grid;
-      grid-template-columns: 1fr 1fr; /* 左右分布 */
-      gap: 20px; /* 可选，设置间距 */
-    }
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 左右分布 */
+    gap: 20px; /* 可选，设置间距 */
+  }
   .list {
-          width: 100%;
-          height: 100%;
-          float: left;
-      }
+    width: 100%;
+    height: 100%;
+    float: left;
+  }
 }
 </style>

@@ -8,6 +8,7 @@ export default {
   name: "HotTrend",
   props: {
     selectRangeDate: Array,
+    limit: Number,
   },
   data() {
     return {};
@@ -116,7 +117,7 @@ export default {
             padding: [0, 6, 0, 0],
           },
         },
-        series: hotTrendData,
+        series: hotTrendData.slice(0, this.limit),
       };
       let myChart = this.$echarts(this.$el);
 
