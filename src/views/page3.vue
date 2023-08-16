@@ -24,11 +24,10 @@
             ></store-rate-detail>
           </template>
         </Row>
-        <div class="left1" style="height:28%;">
-                    
-                    <!-- <red-pocket ref="redPocket"></red-pocket> -->
-                    <words-cloud></words-cloud>
-                </div>
+        <div class="left1" style="height: 28%">
+          <!-- <red-pocket ref="redPocket"></red-pocket> -->
+          <words-cloud></words-cloud>
+        </div>
       </div>
     </Col>
     <Col style="width: 48%; padding: 0 1%">
@@ -37,17 +36,29 @@
         <tianhe-map ref="tianheMap"></tianhe-map>
       </div>
       <div class="center-bottom">
-        <span class="title"
+        <span class="title" style="z-index: 1999"
+          ><span
+            class="title-4"
+            @click="showPublicEvent = !showPublicEvent"
+            style="cursor: pointer"
+            >{{
+              showPublicEvent ? "舆情实时监测" : "TOP5商家热度变化趋势"
+            }}</span
+          ></span
+        >
+        <span class="angle1"></span>
+        <span class="angle2"></span>
+        <span class="angle3"></span>
+        <span class="angle4"></span>
+        <!-- <span class="title"
           ><span
             class="title-text"
             @click="showPublicEvent = !showPublicEvent"
             style="cursor: pointer"
             >TOP5商家热度变化趋势</span
-          ></span
-        >
-        
+          ></span> 
+        -->
         <!-- <span class="angle1"></span>
->>>>>>> dev
                 <span class="angle2"></span>
                 <span class="angle3"></span>
                 <span class="angle4"></span>
@@ -279,80 +290,91 @@ export default {
           top: "16%",
           color: "14,73,245",
           data: [
-            { name: "广州文华东方酒店", value: 10 },
-            { name: "壹米酒店", value: 9 },
-            { name: "家外家连锁酒店", value: 8 },
-            { name: "广州卓美亚酒店 ", value: 7 },
-            { name: "广州柏悦酒店 ", value: 6 },
-            { name: "广州瑰丽府邸 ", value: 5 },
-            { name: "广州德安丽舍凯宾斯基酒店", value: 4 },
-            { name: "广州嘉逸国际酒店 ", value: 3 },
-            { name: "广州保利洲际酒店 ", value: 2 },
-            { name: "广州宝德国际酒店", value: 1 },
+            { name: "广州文华东方酒店", value: 10, isPartner: true },
+            { name: "壹米酒店", value: 9, isPartner: false },
+            { name: "家外家连锁酒店", value: 8, isPartner: false },
+            { name: "广州卓美亚酒店 ", value: 7, isPartner: false },
+            { name: "广州柏悦酒店 ", value: 6, isPartner: false },
+            { name: "广州瑰丽府邸 ", value: 5, isPartner: true },
+            { name: "广州德安丽舍凯宾斯基酒店", value: 4, isPartner: false },
+            { name: "广州嘉逸国际酒店 ", value: 3, isPartner: false },
+            { name: "广州保利洲际酒店 ", value: 2, isPartner: true },
+            { name: "广州宝德国际酒店", value: 1, isPartner: false },
+            { name: "广州全季酒店", value: 1, isPartner: true },
           ],
         },
         {
           top: "33%",
           color: "170,6,243",
           data: [
-            { name: "广州同裕国际酒店 ", value: 10 },
-            { name: "广州香格里拉大酒店", value: 9 },
-            { name: "广州希尔顿逸林酒店", value: 8 },
-            { name: "广州伊士丹顿酒店", value: 7 },
-            { name: "广州东圃合景福朋喜来登酒店", value: 6 },
-            { name: "广州翡翠希尔顿酒店", value: 5 },
-            { name: "广州富力君悦大酒店", value: 4 },
-            { name: "广州卓美亚礼庭公寓 ", value: 3 },
-            { name: "广州生物岛高新木莲庄酒店", value: 2 },
-            { name: "美豪丽致酒店(广州东站店)", value: 1 },
+            { name: "广州同裕国际酒店 ", value: 10, isPartner: false },
+            { name: "广州香格里拉大酒店", value: 9, isPartner: true },
+            { name: "广州希尔顿逸林酒店", value: 8, isPartner: false },
+            { name: "广州伊士丹顿酒店", value: 7, isPartner: true },
+            { name: "广州东圃合景福朋喜来登酒店", value: 6, isPartner: false },
+            { name: "广州翡翠希尔顿酒店", value: 5, isPartner: false },
+            { name: "广州富力君悦大酒店", value: 4, isPartner: false },
+            { name: "广州卓美亚礼庭公寓 ", value: 3, isPartner: true },
+            { name: "广州生物岛高新木莲庄酒店", value: 2, isPartner: false },
+            { name: "美豪丽致酒店(广州东站店)", value: 1, isPartner: false },
           ],
         },
         {
           top: "50%",
           color: "254,153,0",
           data: [
-            { name: "广州天河体育中心美居酒店", value: 10 },
-            { name: "广州马会酒店", value: 9 },
-            { name: "广州山庄旅舍 ", value: 8 },
-            { name: "珠光星御国际公寓", value: 7 },
-            { name: "榆漫居行政公寓", value: 6 },
-            { name: "友和酒店", value: 5 },
-            { name: "广州长洲岛鸿境红棉花院", value: 4 },
-            { name: "广州静谧坊酒店(天河智慧城店)", value: 3 },
-            { name: "广州丽柏国际酒店(珠江新城岗顶地铁站店) ", value: 2 },
-            { name: "广州远洋宾馆", value: 1 },
+            { name: "广州天河体育中心美居酒店", value: 10, isPartner: false },
+            { name: "广州马会酒店", value: 9, isPartner: true },
+            { name: "广州山庄旅舍 ", value: 8, isPartner: false },
+            { name: "珠光星御国际公寓", value: 7, isPartner: false },
+            { name: "榆漫居行政公寓", value: 6, isPartner: true },
+            { name: "友和酒店", value: 5, isPartner: false },
+            { name: "广州长洲岛鸿境红棉花院", value: 4, isPartner: false },
+            { name: "广州桔子酒店", value: 4, isPartner: false },
+            { name: "广州希尔顿酒店", value: 4, isPartner: false },
+            {
+              name: "广州静谧坊酒店(天河智慧城店)",
+              value: 3,
+              isPartner: false,
+            },
+            {
+              name: "广州丽柏国际酒店(珠江新城岗顶地铁站店) ",
+              value: 2,
+              isPartner: false,
+            },
+            { name: "广州远洋宾馆", value: 1, isPartner: true },
           ],
         },
         {
           top: "67%",
           color: "255,102,0",
           data: [
-            { name: "怡程酒店", value: 10 },
-            { name: "CityNote希诺酒店", value: 9 },
-            { name: "广州威珀斯酒店", value: 8 },
-            { name: "广州新珠江大酒店", value: 7 },
-            { name: "柏曼酒店", value: 6 },
-            { name: "广州珠江新城希尔顿欢朋酒店", value: 5 },
-            { name: "广州京溪礼顿酒店", value: 4 },
-            { name: "南洋冠盛酒店", value: 3 },
-            { name: "广州克莱顿酒店", value: 2 },
-            { name: "广州合晋帝苑酒店", value: 1 },
+            { name: "怡程酒店", value: 10, isPartner: false },
+            { name: "CityNote希诺酒店", value: 9, isPartner: true },
+            { name: "广州威珀斯酒店", value: 8, isPartner: true },
+            { name: "广州新珠江大酒店", value: 7, isPartner: false },
+            { name: "柏曼酒店", value: 6, isPartner: false },
+            { name: "广州珠江新城希尔顿欢朋酒店", value: 5, isPartner: false },
+            { name: "广州京溪礼顿酒店", value: 4, isPartner: true },
+            { name: "南洋冠盛酒店", value: 3, isPartner: false },
+            { name: "广州克莱顿酒店", value: 2, isPartner: false },
+            { name: "广州合晋帝苑酒店", value: 1, isPartner: false },
           ],
         },
         {
           top: "83%",
           color: "127,5,253",
           data: [
-            { name: "锦鑫商务宾馆", value: 10 },
-            { name: "文星酒店", value: 9 },
-            { name: "美夜酒店", value: 8 },
-            { name: "乔斯顿电竞酒店", value: 7 },
-            { name: "宏森公寓", value: 6 },
-            { name: "广州佳乐商务酒店", value: 5 },
-            { name: "7天优品酒店", value: 4 },
-            { name: "益粮智能公寓", value: 3 },
-            { name: "吉星精品酒店", value: 2 },
-            { name: "信捷酒店公寓", value: 1 },
+            { name: "锦鑫商务宾馆", value: 10, isPartner: false },
+            { name: "文星酒店", value: 9, isPartner: false },
+            { name: "美夜酒店", value: 8, isPartner: false },
+            { name: "乔斯顿电竞酒店", value: 7, isPartner: true },
+            { name: "宏森公寓", value: 6, isPartner: false },
+            { name: "广州佳乐商务酒店", value: 5, isPartner: false },
+            { name: "7天优品酒店", value: 4, isPartner: false },
+            { name: "益粮智能公寓", value: 3, isPartner: true },
+            { name: "吉星精品酒店", value: 2, isPartner: false },
+            { name: "信捷酒店公寓", value: 1, isPartner: false },
           ],
         },
       ],
