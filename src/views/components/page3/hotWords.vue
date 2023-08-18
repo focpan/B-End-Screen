@@ -332,23 +332,23 @@ export default {
                         data: [
                             {
                                 value: 500,
-                                name: '要死'
+                                name: '贴心'
                             },
                             {
                                 value: 424,
-                                name: '不活了'
+                                name: '细致'
                             },
                             {
                                 value: 332,
-                                name: '杀人'
+                                name: '主动'
                             },
                             {
                                 value: 264,
-                                name: '愤怒'
+                                name: '周到'
                             },
                             {
                                 value: 144,
-                                name: '自杀'
+                                name: '专业'
                             },
                         ]
                     },
@@ -383,23 +383,23 @@ export default {
                         data: [
                             {
                                 value: 500,
-                                name: '张学友'
+                                name: '不耐烦'
                             },
                             {
                                 value: 424,
-                                name: '刘德华'
+                                name: '敷衍'
                             },
                             {
                                 value: 332,
-                                name: '郭富城'
+                                name: '慢'
                             },
                             {
                                 value: 264,
-                                name: '黎明'
+                                name: '不专业'
                             },
                             {
                                 value: 144,
-                                name: '周华健'
+                                name: '冷淡'
                             },
                         ]
                     },
@@ -434,23 +434,23 @@ export default {
                         data: [
                             {
                                 value: 500,
-                                name: '要死'
+                                name: '干净'
                             },
                             {
                                 value: 424,
-                                name: '不活了'
+                                name: '整洁'
                             },
                             {
                                 value: 332,
-                                name: '杀人'
+                                name: '安静'
                             },
                             {
                                 value: 264,
-                                name: '愤怒'
+                                name: '舒适'
                             },
                             {
                                 value: 144,
-                                name: '自杀'
+                                name: '方便'
                             },
                         ]
                     },
@@ -485,23 +485,23 @@ export default {
                         data: [
                             {
                                 value: 500,
-                                name: '张学友'
+                                name: '脏'
                             },
                             {
                                 value: 424,
-                                name: '刘德华'
+                                name: '破旧'
                             },
                             {
                                 value: 332,
-                                name: '郭富城'
+                                name: '不卫生'
                             },
                             {
                                 value: 264,
-                                name: '黎明'
+                                name: '吵闹'
                             },
                             {
                                 value: 144,
-                                name: '周华健'
+                                name: '偏僻'
                             },
                         ]
                     },
@@ -536,23 +536,23 @@ export default {
                         data: [
                             {
                                 value: 500,
-                                name: '要死'
+                                name: '宝藏'
                             },
                             {
                                 value: 424,
-                                name: '不活了'
+                                name: '推荐'
                             },
                             {
                                 value: 332,
-                                name: '杀人'
+                                name: '满意'
                             },
                             {
                                 value: 264,
-                                name: '愤怒'
+                                name: '好吃'
                             },
                             {
                                 value: 144,
-                                name: '自杀'
+                                name: '香'
                             },
                         ]
                     },
@@ -587,23 +587,23 @@ export default {
                         data: [
                             {
                                 value: 500,
-                                name: '张学友'
+                                name: '踩雷'
                             },
                             {
                                 value: 424,
-                                name: '刘德华'
+                                name: '不值'
                             },
                             {
                                 value: 332,
-                                name: '郭富城'
+                                name: '难吃'
                             },
                             {
                                 value: 264,
-                                name: '黎明'
+                                name: '不喜欢'
                             },
                             {
                                 value: 144,
-                                name: '周华健'
+                                name: '差评'
                             },
                         ]
                     }
