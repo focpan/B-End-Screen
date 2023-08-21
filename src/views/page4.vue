@@ -912,6 +912,7 @@ export default {
         .canvasList {
           height: calc(~"100% - 25px");
           text-align: center;
+          margin-top: 15px;
         }
       }
     }
