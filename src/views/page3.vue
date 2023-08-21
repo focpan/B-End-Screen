@@ -899,6 +899,7 @@ export default {
         .canvasList {
           height: calc(~"100% - 25px");
           text-align: center;
+          margin-top: 15px;
         }
       }
     }
@@ -925,6 +926,7 @@ export default {
         display: inline-block;
         padding: 0 4px;
         transform: translateY(-5px);
+        
       }
     }
   }

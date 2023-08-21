@@ -25,7 +25,7 @@ export default {
 
                     ],
                     gridIndex: 3,
-                    left: "19%",
+                    left: "21%",
                     top: "4%",
                     itemWidth: 7,
                     itemHeight: 7,
