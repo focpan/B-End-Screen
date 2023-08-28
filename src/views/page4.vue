@@ -23,7 +23,7 @@
             ></radar-chart>
           </template>
         </Row>
-        <div class="left1" style="height: 28%">
+        <div class="left1" style="height: 24%">
           <!-- <red-pocket ref="redPocket"></red-pocket> -->
           <words-cloud></words-cloud>
         </div>
@@ -933,6 +933,7 @@ export default {
         .canvasList {
           height: calc(~"100% - 25px");
           text-align: center;
+          margin-top: 15px;
         }
       }
     }
