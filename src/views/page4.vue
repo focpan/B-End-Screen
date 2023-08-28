@@ -7,7 +7,7 @@
             class="title-4"
             @click="showRateDetail = !showRateDetail"
             style="cursor: pointer"
-            >商户分级监控</span
+            >用户偏好统计</span
           ></span
         >
         <span class="angle1"></span>
@@ -16,12 +16,11 @@
         <span class="angle4"></span>
         <Row style="width: 100%; height: 50%">
           <template style="height: 80%">
-            <storeRate v-if="!showRateDetail" ref="chart6"></storeRate>
-            <store-rate-detail
-              v-else
-              :data1="data1"
-              :data2="data2"
-            ></store-rate-detail>
+            <radar-chart
+              ref="chart2"
+              id="left_2"
+              :data="chatRadarData"
+            ></radar-chart>
           </template>
         </Row>
         <div class="left1" style="height: 28%">
@@ -138,13 +137,12 @@
 // const doubleBar = ()=> import('./components/page3/doubleBar');
 // const webcastsRisk = () => import("./components/page3/webcastsRisk");
 // const deviceSafeRisk = ()=> import('./components/page3/deviceSafeRisk');
+const radarChart = () => import("./components/radar");
 const doubleRing = () => import("./components/page3/doubleRing");
 const hotWords = () => import("./components/page3/hotWords");
 // const tianheMap = () => import("./components/page3/tianheMap");
 const wordsCloud = () => import("./components/page3/wordCloud.vue");
 const hotTrend = () => import("./components/page3/hotTrend");
-const storeRate = () => import("./components/page3/storeRate.vue");
-const storeRateDetail = () => import("./components/page3/storeRateDetail.vue");
 const publicEventList = () => import("./components/page3/publicEventList.vue");
 const ring = () => import("./components/page4/ring");
 
@@ -153,6 +151,7 @@ export default {
   props: ["selectRangeDate"],
   components: {
     // chinaMap,
+    radarChart,
     wordsCloud,
     // tianheMap,
     // channelBar,
@@ -167,8 +166,6 @@ export default {
     doubleRing,
     hotWords,
     hotTrend,
-    storeRate,
-    storeRateDetail,
     publicEventList,
     ring, // 圆环
   },
@@ -176,6 +173,30 @@ export default {
     return {
       showRateDetail: false,
       showPublicEvent: false,
+      chatRadarData: {
+        position: ["center", "85%"],
+        center: ["50%", "50%"],
+        indicator: [
+          { text: "好吃" },
+          { text: "实惠" },
+          { text: "便宜" },
+          { text: "踩雷" },
+          { text: "难吃" },
+          { text: "服务差" },
+        ],
+        data: [
+          {
+            name: "评价人次",
+            color: "#0DF5F8",
+            value: [100, 8, 0.4, -80, 2000, 332],
+          },
+          {
+            name: "评价人数",
+            color: "#7921AD",
+            value: [60, 5, 0.3, -100, 1500, 221],
+          },
+        ],
+      },
       hotItems: [
         {
           text: "环境很差，打扫非常不干净，除了第一天前台的小姐服务态度不错外，真的很恶心，墙壁发霉，所谓酒店有霉味，床头柜和地板都是脏的，床底烟头、碎瓷片什么东西都有，里面的花洒是烂的，窗是坏的，晚上有蚊子，真的是图片和实景的巨大区别",
