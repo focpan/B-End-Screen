@@ -1,11 +1,15 @@
-<template>
-  <div id="container"></div>
+<!-- <template>
+  <div id="container">
+    <img src="/assets/image.jpg" alt="Image" />
+  </div>
 </template>
 
 <script>
 import Highcharts from "highcharts";
 import wordcloud from "highcharts/modules/wordcloud";
 wordcloud(Highcharts);
+
+
 export default {
   name: "wordCloud",
   data() {
@@ -137,7 +141,7 @@ export default {
 
         //标题配置
         title: {
-          text: "[ 用户词云 ]",
+          text: "[ 商户画像 ]",
           // x: 5,
           // y: 15,
           align: "center",
@@ -157,5 +161,52 @@ export default {
 .container {
   width: 100%;
   height: 100%;
+}
+</style> -->
+
+<template>
+  <div id="container">
+    <div class="title">
+      <span class="title-text" style="background-color: black;">[ 商户画像 ]</span>
+    </div>
+    <img src="../../../assets/images/worldcould.png" alt="User Profile" class="center-image" />
+  </div>
+</template>
+
+<script>
+export default {
+  name: "WordCloudImage",
+};
+</script>
+
+<style scoped>
+#container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.title {
+  margin-bottom: 70px;
+  text-align: center;
+  background-color: #151456;
+}
+
+.title-text {
+  color: #6EDDF1;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 1.2;
+  
+}
+
+img.center-image {
+  max-width: 100%;
+  width: 440px;
+  height: auto;
+  margin-top: 250px;
 }
 </style>
