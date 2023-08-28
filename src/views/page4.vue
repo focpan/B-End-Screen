@@ -3,12 +3,7 @@
     <Col style="width: 26%">
       <div class="left">
         <span class="title" style="z-index: 1999"
-          ><span
-            class="title-4"
-            @click="showRateDetail = !showRateDetail"
-            style="cursor: pointer"
-            >用户偏好统计</span
-          ></span
+          ><span class="title-4">用户偏好统计</span></span
         >
         <span class="angle1"></span>
         <span class="angle2"></span>
@@ -188,12 +183,12 @@ export default {
           {
             name: "评价人次",
             color: "#0DF5F8",
-            value: [100, 8, 0.4, -80, 2000, 332],
+            value: [100, 8, 0.4, -80, -5, 332],
           },
           {
             name: "评价人数",
             color: "#7921AD",
-            value: [60, 5, 0.3, -100, 1500, 221],
+            value: [60, 5, 0.3, -100, -10, 221],
           },
         ],
       },
